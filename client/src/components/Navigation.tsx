@@ -44,7 +44,7 @@ export default function Navigation() {
             <Link href="/">
               <div className="flex items-center gap-2 group">
                 <img
-                  src="/manus-storage/logo-monogram_4c457977.png"
+                  src="/assets/logo-monogram.png"
                   alt="TV Logo"
                   className="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-110"
                 />

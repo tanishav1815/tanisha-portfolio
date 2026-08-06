@@ -39,7 +39,7 @@ export default function About() {
         ref={heroSection.ref}
       >
         <div className="absolute inset-0 opacity-20">
-          <img src="/manus-storage/about-garden_65e3a2dd.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
+          <img src="/assets/about-garden.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
         <div className={`max-w-4xl mx-auto relative z-10 transition-all duration-700 ${heroSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <p className="font-accent text-xl text-[oklch(0.78_0.08_300)] mb-2">Hello, I'm</p>

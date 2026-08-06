@@ -50,7 +50,7 @@ export default function Home() {
         {/* Hero background image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/manus-storage/hero-garden_ca1d85e3.png"
+            src="/assets/hero-garden.png"
             alt=""
             className="w-full h-full object-cover opacity-50"
             aria-hidden="true"

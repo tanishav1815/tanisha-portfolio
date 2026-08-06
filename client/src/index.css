@@ -1,0 +1,312 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+   TANISHA VERMA PORTFOLIO — Enchanted Garden Watercolor Theme
+   Palette: Cream base + Lilac, Baby Blue, Soft Pink, Butter Yellow,
+            Peach/Coral, Periwinkle, Mint Green
+   Fonts: Playfair Display (headings), Lato (body), Dancing Script (accent)
+   ============================================================ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Garden Pastel Palette */
+  --color-cream: oklch(0.975 0.012 85);
+  --color-cream-dark: oklch(0.955 0.015 85);
+  --color-lilac: oklch(0.78 0.08 300);
+  --color-lilac-light: oklch(0.88 0.05 300);
+  --color-lilac-dark: oklch(0.65 0.12 300);
+  --color-baby-blue: oklch(0.82 0.06 220);
+  --color-baby-blue-light: oklch(0.90 0.04 220);
+  --color-soft-pink: oklch(0.85 0.07 5);
+  --color-soft-pink-light: oklch(0.92 0.04 5);
+  --color-butter-yellow: oklch(0.91 0.09 90);
+  --color-butter-yellow-light: oklch(0.95 0.06 90);
+  --color-peach: oklch(0.85 0.08 50);
+  --color-peach-light: oklch(0.92 0.05 50);
+  --color-periwinkle: oklch(0.72 0.10 265);
+  --color-periwinkle-light: oklch(0.82 0.07 265);
+  --color-mint: oklch(0.88 0.07 165);
+  --color-mint-light: oklch(0.93 0.04 165);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', system-ui, sans-serif;
+  --font-accent: 'Dancing Script', cursive;
+}
+
+:root {
+  --primary: oklch(0.78 0.08 300);
+  --primary-foreground: oklch(0.25 0.04 300);
+  --secondary: oklch(0.82 0.06 220);
+  --secondary-foreground: oklch(0.25 0.04 220);
+  --accent: oklch(0.85 0.07 5);
+  --accent-foreground: oklch(0.25 0.04 5);
+  --muted: oklch(0.955 0.015 85);
+  --muted-foreground: oklch(0.50 0.02 85);
+  --background: oklch(0.975 0.012 85);
+  --foreground: oklch(0.25 0.02 60);
+  --card: oklch(0.99 0.008 85);
+  --card-foreground: oklch(0.25 0.02 60);
+  --popover: oklch(0.99 0.008 85);
+  --popover-foreground: oklch(0.25 0.02 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.025 85);
+  --input: oklch(0.92 0.015 85);
+  --ring: oklch(0.78 0.08 300);
+  --radius: 1rem;
+  --sidebar: oklch(0.975 0.012 85);
+  --sidebar-foreground: oklch(0.25 0.02 60);
+  --sidebar-primary: oklch(0.78 0.08 300);
+  --sidebar-primary-foreground: oklch(0.25 0.04 300);
+  --sidebar-accent: oklch(0.955 0.015 85);
+  --sidebar-accent-foreground: oklch(0.25 0.02 60);
+  --sidebar-border: oklch(0.88 0.025 85);
+  --sidebar-ring: oklch(0.78 0.08 300);
+  --chart-1: oklch(0.78 0.08 300);
+  --chart-2: oklch(0.82 0.06 220);
+  --chart-3: oklch(0.85 0.07 5);
+  --chart-4: oklch(0.91 0.09 90);
+  --chart-5: oklch(0.88 0.07 165);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+/* ============================================================
+   GARDEN ANIMATIONS
+   ============================================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(2deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+@keyframes bloom {
+  0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+  60% { transform: scale(1.05) rotate(1deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes petal-fall {
+  0% { transform: translateY(-10px) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(100vh) translateX(40px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.animate-float-delay-1 { animation: float 4.5s ease-in-out infinite 0.8s; }
+.animate-float-delay-2 { animation: float-slow 5.5s ease-in-out infinite 1.6s; }
+.animate-float-delay-3 { animation: float 5s ease-in-out infinite 2.4s; }
+.animate-bloom { animation: bloom 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+.animate-fade-up { animation: fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+
+/* ============================================================
+   GARDEN UTILITY CLASSES
+   ============================================================ */
+
+.font-display { font-family: var(--font-display); }
+.font-accent { font-family: var(--font-accent); }
+.font-body { font-family: var(--font-body); }
+
+/* Pastel card color variants */
+.card-lilac { background: linear-gradient(135deg, oklch(0.93 0.04 300), oklch(0.97 0.02 300)); }
+.card-blue { background: linear-gradient(135deg, oklch(0.93 0.04 220), oklch(0.97 0.02 220)); }
+.card-pink { background: linear-gradient(135deg, oklch(0.93 0.04 5), oklch(0.97 0.02 5)); }
+.card-yellow { background: linear-gradient(135deg, oklch(0.95 0.06 90), oklch(0.98 0.03 90)); }
+.card-peach { background: linear-gradient(135deg, oklch(0.93 0.05 50), oklch(0.97 0.03 50)); }
+.card-periwinkle { background: linear-gradient(135deg, oklch(0.88 0.06 265), oklch(0.93 0.04 265)); }
+.card-mint { background: linear-gradient(135deg, oklch(0.93 0.05 165), oklch(0.97 0.03 165)); }
+
+/* Garden card hover */
+.garden-card {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+.garden-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px oklch(0 0 0 / 0.12), 0 8px 16px oklch(0 0 0 / 0.08);
+}
+.garden-card:active {
+  transform: translateY(-4px) scale(0.99);
+}
+
+/* Masonry layout */
+.masonry-grid {
+  columns: 1;
+  column-gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .masonry-grid { columns: 2; }
+}
+@media (min-width: 1024px) {
+  .masonry-grid { columns: 3; }
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.75rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: oklch(0.975 0.012 85); }
+::-webkit-scrollbar-thumb { background: oklch(0.78 0.08 300 / 0.5); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.78 0.08 300 / 0.8); }
+
+html { scroll-behavior: smooth; }
+::selection { background: oklch(0.78 0.08 300 / 0.3); }
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: oklch(0.78 0.08 300);
+  border-radius: 1px;
+  transition: width 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Skill tag */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: transform 150ms ease-out;
+}
+.skill-tag:hover { transform: scale(1.05); }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-float-slow, .animate-float-delay-1,
+  .animate-float-delay-2, .animate-float-delay-3, .animate-spin-slow {
+    animation: none;
+  }
+}

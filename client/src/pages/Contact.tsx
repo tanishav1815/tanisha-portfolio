@@ -62,7 +62,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-6">
             <div>
-            <h2 className="font-display text-2xl font-bold text-[oklch(0.22_0.02_60)] mb-2">Plant a Seed 🌱</h2>
+              <h2 className="font-display text-2xl font-bold text-[oklch(0.22_0.02_60)] mb-2">Plant a Seed 🌱</h2>
               <p className="font-body text-sm text-[oklch(0.45_0.02_60)] leading-relaxed">
                 I'm always open to new opportunities, collaborations, and conversations. Feel free to reach out!
               </p>
@@ -70,9 +70,9 @@ export default function Contact() {
 
             {/* Contact cards */}
             {[
-              { icon: <Mail size={20} />, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}`, color: "#F2C4CE" },
+              { icon: <Mail size={20} />, label: "Email", value: "tanishav1815@gmail.com", href: `mailto:${personalInfo.email}`, color: "#F2C4CE" },
               { icon: <MapPin size={20} />, label: "Location", value: personalInfo.location, href: null, color: "#B8E8D4" },
-              { icon: <Linkedin size={20} />, label: "LinkedIn", value: "linkedin.com/in/tanisha-verma", href: personalInfo.linkedin, color: "#B8D4E8" },
+              { icon: <Linkedin size={20} />, label: "LinkedIn", value: "linkedin.com/in/tanisha--verma", href: personalInfo.linkedin, color: "#B8D4E8" },
               { icon: <Github size={20} />, label: "GitHub", value: "github.com/tanishav1815", href: "https://github.com/tanishav1815", color: "#C9B8E8" },
             ].map((item) => (
               <div

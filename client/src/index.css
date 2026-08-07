@@ -310,3 +310,26 @@ html { scroll-behavior: smooth; }
     animation: none;
   }
 }
+
+/* ============================================================
+   BUTTERFLY CUSTOM CURSOR
+   ============================================================ */
+
+/* Hide default cursor on desktop screens (min-width: 768px) */
+@media (min-width: 768px) {
+  body, a, button, select, input, textarea, [role="button"], [type="button"], [type="submit"], [type="reset"] {
+    cursor: none !important;
+  }
+}
+
+/* Wing flap animations */
+@keyframes flap-left {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(75deg); }
+}
+
+@keyframes flap-right {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(-75deg); }
+}
+

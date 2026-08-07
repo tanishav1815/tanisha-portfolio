@@ -11,6 +11,7 @@ import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import GitHub from "./pages/GitHub";
+import ButterflyCursor from "./components/ButterflyCursor";
 
 function Router() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <ButterflyCursor />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

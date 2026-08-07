@@ -333,3 +333,14 @@ html { scroll-behavior: smooth; }
   50% { transform: rotateY(-75deg); }
 }
 
+/* Sparkle trail fade-out keyframes */
+@keyframes sparkle-fade {
+  0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0; }
+  30% { transform: translate(-50%, -50%) scale(1) rotate(45deg); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(0) rotate(90deg); opacity: 0; }
+}
+
+.animate-sparkle {
+  animation: sparkle-fade 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+

@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
 import { personalInfo } from "@/lib/portfolioData";
 import { Mail, MapPin, Linkedin, Github, Send, CheckCircle } from "lucide-react";
+import { toast } from "sonner";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -25,16 +26,42 @@ function useInView(threshold = 0.15) {
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const heroSection = useInView(0.1);
   const formSection = useInView();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Open mailto link as a fallback
-    const subject = encodeURIComponent(formData.subject || "Portfolio Contact");
-    const body = encodeURIComponent(`Hi Tanisha,\n\n${formData.message}\n\nBest,\n${formData.name}\n${formData.email}`);
-    window.open(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`);
-    setSubmitted(true);
+    setSending(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xgawoeen", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        toast.success("Message sent successfully! 🌸");
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending form:", error);
+      toast.error("Something went wrong. Please check your internet connection.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -158,11 +185,18 @@ export default function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-body text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                  disabled={sending}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-body text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ background: "linear-gradient(135deg, oklch(0.78 0.08 300), oklch(0.72 0.10 265))" }}
                 >
-                  <Send size={16} />
-                  Send Message 🌸
+                  {sending ? (
+                    "Sending Message..."
+                  ) : (
+                    <>
+                      <Send size={16} />
+                      Send Message 🌸
+                    </>
+                  )}
                 </button>
               </form>
             )}
